@@ -1,0 +1,4 @@
+.vscode
+**/__pycache__
+riddles.json
+leaderboard.csv
