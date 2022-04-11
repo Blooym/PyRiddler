@@ -46,7 +46,7 @@ def submit_score(score):
     """
     username = input("Username for Leaderboard > ")
     create_entry(username, score)
-    print("Your score is now on the leaderboard! Press any key to exit PyRiddler.")
+    print("Your score is now on the leaderboard, goodbye!")
     sys.exit()
 
 
@@ -75,7 +75,7 @@ def play_game(score):
             submit_score(score)
 
     print(show_logo())
-    print(f"Your riddle is as follows!\n\"{riddle_hint}\"\n")
+    print(f"{riddle_hint}\n")
     game_over = False
     incorrect_guesses = 1
 
@@ -104,15 +104,14 @@ def play_game(score):
             score = score + 1
             used_riddle_keys.append(riddle_answer)
             print(
-                f"""\nCongratulations, the answer was {riddle_answer}! Your score is now {score}!
-                Well done.\n""")
+                f"\nCongratulations, the answer was {riddle_answer}! Your score is now {score}!")
 
     # After the game has ended.
     while game_over:
-        play_again = input('Play Again? [Y/n] > ').lower()
+        play_again = input('\nPlay Again? [Y/n] > ').lower()
         if play_again == 'n':
             if score > 0:
-                print(f"Game Ended! Your total score was {score}.")
+                print(f"\nGame Ended! Your total score was {score}.")
                 submit_score(score)
             else:
                 sys.exit()

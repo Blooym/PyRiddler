@@ -4,7 +4,8 @@ Leaderboard data & creating handler
 
 import csv
 import pandas
-field_names = ["Username", "Score"]
+from datetime import datetime
+field_names = ["Username", "Score", "Date"]
 
 
 def leaderboard_check():
@@ -50,7 +51,8 @@ def create_entry(username, score):
 
     with open("leaderboard.csv", mode="a", encoding="utf-8") as leaderboard_file:
         writer = csv.DictWriter(leaderboard_file, fieldnames=field_names)
-        writer.writerow({'Username': username, 'Score': score})
+        writer.writerow({'Username': username, 'Score': score,
+                        'Date': datetime.now().date()})
         leaderboard_file.close()
 
 
